@@ -1,49 +1,9 @@
-**pycache**/
-*.py[cod]
-*.pyo
-*.pyd
-*.so
-
-venv/
-.env/
-.env.*
-
-.env
-
-*.log
-*.tmp
-*.temp
-
-.DS_Store
-Thumbs.db
-
-.vscode/
-.idea/
-
-build/
-dist/
-*.egg-info/
-
-.cache/
-*.cache
-
-repos/
-
-*.db
-*.sqlite3
-*.parquet
-*.faiss
-*.pkl
-
-ingest/chunks/
-ingest/output/
-
-.ipynb_checkpoints/
 # -------------------------------
 # 🔐 Environment variables
 # -------------------------------
 .env
 .env.*
+!.env.example
 
 # -------------------------------
 # 🐍 Python
@@ -108,3 +68,19 @@ logs/
 # -------------------------------
 .DS_Store
 Thumbs.db
+
+# -------------------------------
+# 🗂️ Misc
+# -------------------------------
+*.log
+*.tmp
+*.temp
+*.db
+*.sqlite3
+*.parquet
+*.cache
+.cache/
+*.so
+ingest/chunks/
+ingest/output/
+.ipynb_checkpoints/

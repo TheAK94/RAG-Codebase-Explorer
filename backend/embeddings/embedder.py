@@ -25,10 +25,12 @@ def store_embeddings(chunks, collection_name: str):
     embeddings = get_embedding_model()
 
     try:
+        qdrant_host = os.getenv("QDRANT_HOST", "localhost")
+        qdrant_port = os.getenv("QDRANT_PORT", "6333")
         vectorstore = QdrantVectorStore.from_documents(
             documents=chunks,
             embedding=embeddings,
-            url="http://localhost:6333",
+            url=f"http://{qdrant_host}:{qdrant_port}",
             collection_name=collection_name,
         )
 

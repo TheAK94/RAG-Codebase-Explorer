@@ -3,9 +3,12 @@ import Navbar from './components/Navbar';
 import HomeView from './components/HomeView';
 import ChatView from './components/ChatView';
 
+const API_BASE = 'http://localhost:8000';
+
 const App = () => {
   const [currentPage, setCurrentPage] = useState('home');
-  const [repoUrl, setRepoUrl] = useState('vercel/next.js');
+  const [repoUrl, setRepoUrl] = useState('');
+  const [repoId, setRepoId] = useState(null);
   const navigate = (page) => setCurrentPage(page);
 
   return (
@@ -16,8 +19,23 @@ const App = () => {
       overflow: 'hidden', fontFamily: 'sans-serif',
     }}>
       <Navbar currentPage={currentPage} navigate={navigate} />
-      {currentPage === 'home' && <HomeView setRepoUrl={setRepoUrl} navigate={navigate} />}
-      {currentPage === 'chat' && <ChatView repoUrl={repoUrl} navigate={navigate} />}
+      {currentPage === 'home' && (
+        <HomeView
+          setRepoUrl={setRepoUrl}
+          setRepoId={setRepoId}
+          navigate={navigate}
+          apiBase={API_BASE}
+        />
+      )}
+      {currentPage === 'chat' && (
+        <ChatView
+          repoUrl={repoUrl}
+          repoId={repoId}
+          setRepoId={setRepoId}
+          navigate={navigate}
+          apiBase={API_BASE}
+        />
+      )}
     </div>
   );
 };
